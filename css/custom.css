@@ -404,4 +404,14 @@ width: 600px;
 }
 
 
+.navbar {
+    position: relative;
+}
 
+.navbar-brand{
+    width: 120px;   
+    position: absolute;
+    left: 50%;
+    margin-left: -60px !important;  /* 50% of your logo width */
+    display: block;
+}
