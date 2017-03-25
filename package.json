@@ -7,7 +7,7 @@
     "babel": "babel",
     "webpack": "webpack",
     "build": "webpack-dev-server --hot --content-base ./",
-    "build-prod": "webpack -p && cp src/index.html dist/index.html"
+    "build-prod": "webpack -p && cp index.html dist/index.html"
   },
   "author": "",
   "license": "ISC",
@@ -18,9 +18,36 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.2"
+    "webpack-dev-server": "^2.4.2",
+    "babel-cli": "^6.14.0"
   },
   "dependencies": {
-    "react-notifications": "^1.3.0"
+    "react-notifications": "^1.3.0",
+    "async": "^1.5.2",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "~1.0.0",
+    "busboy": "^0.2.14",
+    "connect": "^3.5.0",
+    "connect-flash": "~0.1.1",
+    "connect-jsx": "^0.7.0",
+    "cookie-parser": "~1.0.0",
+    "express": "^4.0.0",
+    "express-fileupload": "0.0.5",
+    "express-flash": "0.0.2",
+    "express-formidable": "^0.1.3",
+    "express-session": "~1.0.0",
+    "formidable": "^1.0.17",
+    "fs-extra": "^0.30.0",
+    "jsonwebtoken": "^7.1.9",
+    "mongoose": "^4.6.8",
+    "morgan": "~1.0.0",
+    "nodemailer": "^2.3.0",
+    "nodemailer-smtp-transport": "^2.7.2",
+    "nodemailer-wellknown": "^0.2.0",
+    "passport": "~0.1.17",
+    "socket.io": "^1.7.2",
+    "underscore-node": "^0.1.2"
   }
 }
