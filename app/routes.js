@@ -26,7 +26,7 @@ module.exports = function(app, server, io) {
 
     app.get("/register", function(req, res){
 
-        var email = req.query.email.trim();
+        var email = req.query.email.trim().toLowerCase();
         var name = req.query.name.trim();
         
         //Check if the email is taken
