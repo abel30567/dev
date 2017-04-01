@@ -9,9 +9,9 @@ class App extends React.Component {
         super();
         this.state = { showForm : true }
     }
-    
+
     createNotification(type, message = ""){
-    
+
           switch (type) {
             case 'info':
                return NotificationManager.info('Info message');
@@ -26,22 +26,22 @@ class App extends React.Component {
               return NotificationManager.error( message , 'OOPS!!');
               break;
           }
-       
+
     }
-    
+
     validateEmail(email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
     }
-    
+
     register(data, that){
-        
+
         if(data.name.trim() == "" || data.email.trim() == ""){
             that.createNotification('error', 'Please fill in the form.');
         }else if(!that.validateEmail(data.email)){
             that.createNotification('error', 'Invalid E-mail address.');
         }else{
-              axios.get('http://localhost:3000/register', {
+              axios.get('http://54.190.34.147:80/register', {
                 params: {
                     name: data.name,
                     email: data.email
@@ -69,7 +69,7 @@ class App extends React.Component {
                 console.log(error);
               });
         }
-        
+
 
     }
 
@@ -90,7 +90,7 @@ class App extends React.Component {
                         { this.state.showForm ? <Form onRegister={ (data)=> this.register(data, this) } /> : <Confirmation closeConf ={()=> { this.setState({showForm: true})}}/> }
                     </div>
                 </div>
-                <NotificationContainer/> 
+                <NotificationContainer/>
              </div>;
 
   }
@@ -98,4 +98,3 @@ class App extends React.Component {
 }
 
 export default App;
- 
