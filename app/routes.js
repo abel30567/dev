@@ -22,13 +22,13 @@ module.exports = function(app, server, io) {
     var _              = require('underscore-node');
     const util = require('util')
 
-    var path = require('path'); 
+    var path = require('path');
 
     app.get("/register", function(req, res){
 
         var email = req.query.email.trim().toLowerCase();
         var name = req.query.name.trim();
-        
+
         //Check if the email is taken
         if(name.trim() == "" || email.trim() == ""){
             res.send(JSON.stringify({ "message" : "FAILURE", "rson" : "EMPTY_F"}));
@@ -60,11 +60,18 @@ module.exports = function(app, server, io) {
                 }
             })
         }
-        
+
     });
 
     app.get("/", function(req, res){
         res.sendFile(path.join(rootDir + '/index.html'));
+    });
+    app.get("/about", function(req, res){
+        res.sendFile(path.join(rootDir + '/about.html'));
+    });
+
+    app.get("/faq", function(req, res){
+        res.sendFile(path.join(rootDir + '/faq.html'));
     });
 
     function validateEmail(email) {

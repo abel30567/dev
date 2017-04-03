@@ -1,0 +1,16 @@
+.footer-distributed{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 0px;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  box-shadow: none;
+}
+
+
+@media (max-width: 600px) {
+  .footer-distributed{
+    position: relative;
+  }
+}

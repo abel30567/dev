@@ -1,28 +1,35 @@
-.bg {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden
-}
+  html, body{
+    background-color: white;
+  }
+  .bg {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
 
-.bg img{
-  flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%
-}
+  .bg img{
+    flex-shrink: 0;
+      min-width: 100%;
+      min-height: 100%;
+  }
 
 .main-container{
     max-width: 1000px;
     margin: 0 auto;
+    margin-top: 40px;
+    padding-bottom: 90px;
+    background-color: red;
+    background-color: red;
 }
 
 .opacity-container {
     background-color:  #2b2b2a;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -33,6 +40,7 @@
 .white-text{
     color: white;
     margin-top: 20px;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .text{
@@ -45,7 +53,9 @@
     background-color: #006cc7;
     color: white;
     border: 0px;
-    position: relative;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 .navbar-brand {
@@ -254,7 +264,7 @@ width: 600px;
 }
 
 .form-container .form .form-group button {
-    width: 300px;
+    width: 100%;
     height: 50px;
     border: 0px;
     background-color:#006cc7;
@@ -416,15 +426,102 @@ width: 600px;
     font-weight: 1000;
 }
 
-
-.navbar {
-    position: relative;
-}
-
 .navbar-brand{
     width: 120px;
     position: absolute;
     left: 50%;
     margin-left: -60px !important;  /* 50% of your logo width */
     display: block;
+}
+
+.footer-distributed{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 0px;
+  background-color: white;
+  position: relative;
+  box-shadow: none;
+}
+
+.footer-distributed .footer-left .footer-links{
+  color: #006acd;
+}
+
+.footer-distributed .footer-right a{
+  background-color: #006acd;
+}
+
+.questions{
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 120px;
+  min-height: 600px;
+  padding: 7px;
+}
+
+.questions .question{
+  margin-bottom: 20px;
+}
+
+.questions .question span{
+  display: inline;
+}
+
+.questions .question p{
+  display: inline;
+  margin-left: 5px;
+  font-size: 2.0em;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.questions .question .text{
+  margin-top: 13px;
+  margin-left: 30px;
+  color: black;
+  font-size: 1.2em;
+  font-family: 'Josefin Sans', sans-serif;
+  border-top: 1px solid #d0cdcf;
+  padding-top: 13px
+}
+
+.questions .question .arrow-btn{
+  border: 0px;
+  background: transparent;
+  font-size: 1.3em;
+  color: #098ce0;
+  opacity: 0.6;
+}
+
+.heading{
+  text-align:center;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #d0cdcf;
+  padding-bottom: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.questions .question .arrow-btn:focus {
+  outline: none;
+}
+
+@media (max-width: 400px) {
+  .form-container {
+    width: 95%;
+  }
+
+  .white-text{
+    font-size: 90%;
+    padding: 6%;
+  }
+}
+
+@media (max-width: 600px) {
+  .questions .question p{
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .questions {
+    padding-bottom: 100px;
+  }
 }

@@ -9,11 +9,11 @@
     <!--Let browser know website is optimized for mobile-->
     <link rel="stylesheet" type="text/css" href="node_modules/react-notifications/lib/notifications.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/demo.css">
 	   <link rel="stylesheet" href="css/footer-distributed.css">
      <link type="text/css" rel="stylesheet" href="css/custom.css" media="screen,projection" />
-     <link type="text/css" rel="stylesheet" href="css/index.css" media="screen,projection" />
+     <link type="text/css" rel="stylesheet" href="css/about.css" media="screen,projection" />
+     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Sell your items faster, earn more from your sales and profit from sharing products you love! Pre-register now to be the first on iMarkett."/>
 </head>
@@ -27,14 +27,31 @@
         </div>
       </div>
     </nav>
-    <div class="bg">
-      <img src="assets/bg.png">
+    <div class="js-app">
+      <div class="text-center">
+          <h1>
+            Mission
+          </h1>
+          <p>
+            To build history’s biggest and fastest marketplace.
+          </p>
+          <h1>
+            About Us.
+          </h1>
+          <p>
+            At iMarkett we are bridging the physical world with the internet by adding the social aspect to a marketplace. We make the online sales process faster than other marketplaces with the help of your network. We believe your network is an asset that can expand to become the entire world. We aim to make the world’s biggest and fastest marketplace. Join us and experience the new way of e-commerce!
+          </p>
+      </div>
+      <div class="members-container">
+          <div class="row">
+            <div class="col-md-3"> <div class="member"><img src="assets/ceo.png"/></div> <div class="text"><p>Claudio Atilano</p> <p>CEO</p> </div> <div style="clear: both"></div></div>
+            <div class="col-md-3"> <div class="member"><img src="assets/cdo.jpg"/></div> <div class="text"><p>Abel Ramirez</p> <p>CDO</p> </div> <div style="clear: both"></div></div>
+            <div class="col-md-3"> <div class="member"><img src="assets/cao.jpg"/></div> <div class="text"><p>Katherine Rubio</p> <p>CAO</p> </div> <div style="clear: both"></div></div>
+            <div class="col-md-3"> <div class="member"><img src="assets/cto.jpg"/></div> <div class="text"><p>Neil Hernandes</p> <p>CTO</p> </div> <div style="clear: both"></div></div>
+          </div>
+      </div>
     </div>
-    <div class="js-app"></div>
-    <div id="columns">
-
-    </div>
-    <footer class="footer-distributed">
+    <footer class="footer-distributed" style="z-index: 12;">
 
       <div class="footer-right">
 
@@ -60,7 +77,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="dist/home-bundle.js"></script>
     <!--Import jQuery before materialize.js-->
 
 </body>
