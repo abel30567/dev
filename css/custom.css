@@ -204,7 +204,7 @@ width: 600px;
     border: 0px solid #d8dada;
     box-shadow: 0 3px 2px -2px gray;
     width: 400px;
-    height: 400px;
+    min-height: 550px;
     margin: 0 auto;
     margin-top: 50px;
     overflow: hidden;
@@ -251,6 +251,58 @@ width: 600px;
     margin-top: 10px;
     position: relative;
     text-align: center;
+}
+
+.form-container .form .form-group-2{
+    display: inline;
+}
+
+.form-container .form .form-group-2 input[type=text], input[type=password]{
+    width: 45%;
+    padding: 0 10px 0 10px;
+    margin-left: 2.5%;
+    border: none;
+    border-bottom: 1px solid #989a9a;
+    height: 40px;
+}
+
+.form-container .form .form-group-2 input[type=text]:focus, input[type=password]:focus {
+    outline: none;
+    border-bottom: 2px solid #006cc7;
+}
+
+.form-container .form .form-group-1{
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.form-container .form .form-group-1 input[type=text], input[type=password]{
+    width: 92%;
+    padding: 0 10px 0 10px;
+    margin-left: 2.5%;
+    border: none;
+    border-bottom: 1px solid #989a9a;
+    height: 40px;
+}
+
+.form-container .form .form-group-1 textarea{
+    width: 92%;
+    padding: 0 10px 0 10px;
+    margin-left: 2.5%;
+    border: none;
+    border-bottom: 1px solid #989a9a;
+    height: 130px;
+    resize: none;
+}
+
+.form-container .form .form-group-1 textarea:focus{
+    outline: none;
+    border-bottom: 2px solid #006cc7;
+}
+
+.form-container .form .form-group-1 input[type=text]:focus, input[type=password]:focus {
+    outline: none;
+    border-bottom: 2px solid #006cc7;
 }
 
 .form-container .form .form-group input[type=text], input[type=password]{
@@ -502,8 +554,34 @@ width: 600px;
   outline: none;
 }
 
+.border {
+    border: 1px solid #eae9eb;
+}
+
+
+.text-center{
+  padding-top: 10px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2%;
+}
+
+
+.text-center h1{
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  font-size: 3.4em;
+  margin-top: 50px;
+}
+
+.text-center p{
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
 @media (max-width: 400px) {
-  .form-container {
+  .form-container, .conf-container {
     width: 95%;
   }
 

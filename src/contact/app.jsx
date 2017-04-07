@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from './form.jsx';
+import ContactForm from './contactForm.jsx';
 import Confirmation from './confirmation.jsx';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 var axios = require("axios");
@@ -17,7 +17,7 @@ class App extends React.Component {
                return NotificationManager.info('Info message');
               break;
             case 'success':
-               return NotificationManager.success('', 'Congratulations!');
+               return NotificationManager.success('', 'Thank you for contacting us, we will get back to you as soon as possible.!');
               break;
             case 'warning':
               return NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
@@ -34,28 +34,31 @@ class App extends React.Component {
         return re.test(email);
     }
 
-    register(data, that){
+    contact(data, that){
+        var name = data.name.trim();
+        var lastn = data.lastn.trim();
+        var email = data.email.trim();
+        var message = data.message.trim();
 
-        if(data.name.trim() == "" || data.email.trim() == ""){
+        if(name == "" || email == "" || message == "" || lastn == ""){
             that.createNotification('error', 'Please fill in the form.');
-        }else if(!that.validateEmail(data.email)){
+        }else if(!that.validateEmail(email)){
             that.createNotification('error', 'Invalid E-mail address.');
         }else{
-              axios.get('http://www.imarkett.com/register', {
+              axios.get('http://www.imarkett.com/contact', {
                 params: {
-                    name: data.name,
-                    email: data.email
+                    name: name,
+                    lastn: lastn,
+                    email: email,
+                    message: message
                 }
               })
               .then(function (response) {
                 if( response.data.message == "SUCCESS" ){
                     that.setState({showForm: false});
-                    that.createNotification('success');
+                    //that.createNotification('success');
                 }else{
                     switch(response.data.rson){
-                        case 'EMAIL_TAKEN':
-                            that.createNotification('error', 'You already registered!');
-                        break;
                         case 'EMPTY_F':
                             that.createNotification('error', 'Please fill in the form.');
                         break;
@@ -75,20 +78,8 @@ class App extends React.Component {
 
     render() {
         return <div className="main-container">
-                <div className="opacity-container"></div>
-                <div className="row">
-                    <div className="col-sm-6 white-text">
-                        <h1>Welcome to iMarkett.</h1>
-                        <h4>The internet's social marketplace</h4>
-                        <p className="text">
-                            <br />
-                            Connect with your friends. Sell your items faster.<br />
-                            Share products you love & earn cash with the tap of a button! <br />
-                        </p>
-                    </div>
-                    <div className="col-md-6">
-                        { this.state.showForm ? <Form onRegister={ (data)=> this.register(data, this) } /> : <Confirmation closeConf ={()=> { this.setState({showForm: true})}}/> }
-                    </div>
+                <div className="contact-form-container">
+                 { this.state.showForm ? <ContactForm onContact = { (data) => this.contact(data, this) }/> : <Confirmation closeConf ={()=> { this.setState({showForm: true})}}/> }
                 </div>
                 <NotificationContainer/>
              </div>;

@@ -52,13 +52,87 @@ module.exports = function(app, server, io) {
                             if(err){
                                 res.send(JSON.stringify({ "message" : "FAILURE", "rson" : "500"}));
                             }else{
-                                res.send(JSON.stringify({ "message" : "SUCCESS"}));
+            
+                                // create reusable transporter object using the default SMTP transport
+                                let transporter = nodemailer.createTransport({
+                                    service: 'gmail',
+                                    auth: {
+                                        user: 'info@imarkett.com',
+                                        pass: 'iMarkettinfo2017'
+                                    }
+                                });
+
+                                // setup email data with unicode symbols
+                                let mailOptions = {
+                                    from: "iMarket", // sender address
+                                    to: email, // list of receivers
+                                    subject: 'Welcome to iMarket!', // Subject line
+                                    text: 'Hello ' + name + ', thank you for joining iMarket.', // plain text body
+                                };
+
+                                // send mail with defined transport object
+                                transporter.sendMail(mailOptions, (error, info) => {
+                                    if (error) {
+                                        console.log("Error : " + error);
+                                    }else{
+
+                                        console.log(info);
+                                        res.send(JSON.stringify({ "message" : "SUCCESS"}));
+                                    }
+                                });
+                                
                             }
 
                         });
                     }
                 }
             })
+        }
+
+    });
+
+    app.get("/contact", function(req, res){
+
+        var email = req.query.email.trim().toLowerCase();
+        var name = req.query.name.trim();
+        var lastn = req.query.lastn.trim();
+        var message = req.query.message.trim();
+
+        //Check if the email is taken
+        if( name == "" || email == "" || lastn == "" || message == "" ){
+            res.send(JSON.stringify({ "message" : "FAILURE", "rson" : "EMPTY_F"}));
+        }else if(!validateEmail(email)){
+            res.send(JSON.stringify({ "message" : "FAILURE", "rson" : "INV_EMAIL"}));
+        }else{
+                        // create reusable transporter object using the default SMTP transport
+            let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'info@imarkett.com',
+                    pass: 'iMarkettinfo2017'
+                }
+            });
+
+            let text = 'Name : ' + name + ' ' + lastn + '\n';
+            text += 'Email : ' + email + '\n';
+            text += 'Message : ' + message + '\n';
+
+            // setup email data with unicode symbols
+            let mailOptions = {
+                from: "info@imarkett.com", // sender address
+                to: "abel@imarkett.com", // list of receivers
+                subject: 'Message from user', // Subject line
+                text: text, // plain text body
+            };
+
+            // send mail with defined transport object
+            transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                    console.log("Error : " + error);
+                }else{
+                    res.send(JSON.stringify({ "message" : "SUCCESS"}));
+                }
+            });
         }
 
     });
