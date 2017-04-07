@@ -54,7 +54,7 @@ module.exports = function(app, server, io) {
                             }else{
             
                                 // create reusable transporter object using the default SMTP transport
-                                let transporter = nodemailer.createTransport({
+                                var transporter = nodemailer.createTransport({
                                     service: 'gmail',
                                     auth: {
                                         user: 'info@imarkett.com',
@@ -63,7 +63,7 @@ module.exports = function(app, server, io) {
                                 });
 
                                 // setup email data with unicode symbols
-                                let mailOptions = {
+                                var mailOptions = {
                                     from: "iMarket", // sender address
                                     to: email, // list of receivers
                                     subject: 'Welcome to iMarket!', // Subject line
@@ -105,7 +105,7 @@ module.exports = function(app, server, io) {
             res.send(JSON.stringify({ "message" : "FAILURE", "rson" : "INV_EMAIL"}));
         }else{
                         // create reusable transporter object using the default SMTP transport
-            let transporter = nodemailer.createTransport({
+            var transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
                     user: 'info@imarkett.com',
@@ -113,12 +113,12 @@ module.exports = function(app, server, io) {
                 }
             });
 
-            let text = 'Name : ' + name + ' ' + lastn + '\n';
+            var text = 'Name : ' + name + ' ' + lastn + '\n';
             text += 'Email : ' + email + '\n';
             text += 'Message : ' + message + '\n';
 
             // setup email data with unicode symbols
-            let mailOptions = {
+            var mailOptions = {
                 from: "info@imarkett.com", // sender address
                 to: "abel@imarkett.com", // list of receivers
                 subject: 'Message from user', // Subject line
