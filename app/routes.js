@@ -62,12 +62,18 @@ module.exports = function(app, server, io) {
                                     }
                                 });
 
+                                var text = "<p>Hi " + name + " </p></br></br>" ;
+                                text += "<p>Thank you for registering for iMarkett! We prioritize our first users and you'll be rewarded. You will be introduced to the new way of e-commerce and be able to have early access when we launch our Beta.</p></br></br>";
+                                text += "<p>Connect with us through <a href='https://www.facebook.com/iMarkett2017'>Facebook</a>  and <a href='https://twitter.com/i_Markett'>Twitter</a>! If you have any questions, please feel free to email us at info@imarkett.com. </p></br></br>";
+                                text += "<p>Sincerely, </p></br>";
+                                text += "<p>The iMarkett Team, </p></br>";
+
                                 // setup email data with unicode symbols
                                 var mailOptions = {
                                     from: "iMarket", // sender address
                                     to: email, // list of receivers
-                                    subject: 'Welcome to iMarket!', // Subject line
-                                    text: 'Hello ' + name + ', thank you for joining iMarket.', // plain text body
+                                    subject: "Welcome "+ name +" to the internet's social marketplace", // Subject line
+                                    html: text,
                                 };
 
                                 // send mail with defined transport object
