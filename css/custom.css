@@ -1,6 +1,12 @@
   html, body{
     background-color: white;
   }
+
+  input, textarea {
+    -webkit-appearance: none;
+     border-radius: 0;
+  }
+
   .bg {
     position: fixed;
     top: 0;
