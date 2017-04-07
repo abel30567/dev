@@ -91,7 +91,7 @@ module.exports = function(app, server, io) {
 
     });
 
-    app.get("/contact", function(req, res){
+    app.get("/contact-req", function(req, res){
 
         var email = req.query.email.trim().toLowerCase();
         var name = req.query.name.trim();
@@ -146,6 +146,10 @@ module.exports = function(app, server, io) {
 
     app.get("/faq", function(req, res){
         res.sendFile(path.join(rootDir + '/faq.html'));
+    });
+
+    app.get("/contact", function(req, res){
+        res.sendFile(path.join(rootDir + '/contact.html'));
     });
 
     function validateEmail(email) {
