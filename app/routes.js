@@ -120,7 +120,7 @@ module.exports = function(app, server, io) {
             // setup email data with unicode symbols
             var mailOptions = {
                 from: "info@imarkett.com", // sender address
-                to: "abel@imarkett.com", // list of receivers
+                to: "claudio@imarkett.com", // list of receivers
                 subject: 'Message from user', // Subject line
                 text: text, // plain text body
             };
