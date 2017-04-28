@@ -1,7 +1,9 @@
 .members-container{
-  margin: 0 auto;
+  margin-left: 40%;
   margin-top: 60px;
   width: 500px;
+  ;
+
 }
 
 .members-container .member{
